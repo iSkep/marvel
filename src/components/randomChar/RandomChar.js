@@ -10,7 +10,8 @@ class RandomChar extends Component {
     state = {
         char: {},
         loading: true,
-        error: false
+        error: false,
+        newItemLoading: false
     }
 
     marvelService = new MarvelService();
@@ -27,13 +28,16 @@ class RandomChar extends Component {
     onCharLoaded = (char) => {
         this.setState({
             char,
-            loading: false
+            loading: false,
+            newItemLoading: false
         })
     }
 
     onCharLoading = () => {
         this.setState({
-            loading: true
+            loading: true,
+            newItemLoading: true,
+            error: false
         })
     }
 
@@ -53,7 +57,7 @@ class RandomChar extends Component {
     }
 
     render() {
-        const {char, loading, error} = this.state;
+        const {char, loading, error, newItemLoading} = this.state;
         const errorMessage = error ? <ErrorMessage /> : null;
         const spinner = loading ? <Spinner /> : null;
         const content = !(loading || error) ? <View char={char}/> : null;
@@ -71,7 +75,11 @@ class RandomChar extends Component {
                     <p className="randomchar__title">
                         Or choose another one
                     </p>
-                    <button className="button button__main" onClick={this.updateChar}>
+                    <button
+                        className="button button__main"
+                        onClick={this.updateChar}
+                        disabled={newItemLoading}
+                    >
                         <div className="inner">try it</div>
                     </button>
                     <img src={mjolnir} alt="mjolnir" className="randomchar__decoration"/>
