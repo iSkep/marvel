@@ -1,0 +1,29 @@
+.error-page {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+
+    &__header {
+        text-transform: uppercase;
+        font-size: 40px;
+        margin-bottom: 30px;
+    }
+
+    &__subheader {
+        font-size: 20px;
+        margin-bottom: 5px;
+    }
+
+    &__desc {
+        margin-bottom: 30px;
+    }
+
+    &__link {
+        text-decoration: underline;
+    }
+
+    &__image {
+        margin: 0 auto;
+    }
+
+}
