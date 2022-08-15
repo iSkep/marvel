@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 import './404.scss';
-import captainMarvel from "../../resources/img/captain-marvel.png";
+import captainMarvel from "../../../resources/img/captain-marvel.png";
 
 const Page404 = () => {
     return (
