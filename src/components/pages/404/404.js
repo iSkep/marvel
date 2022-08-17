@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 import './404.scss';
 import captainMarvel from "../../../resources/img/captain-marvel.png";
@@ -6,6 +7,13 @@ import captainMarvel from "../../../resources/img/captain-marvel.png";
 const Page404 = () => {
     return (
         <div>
+            <Helmet>
+                <meta
+                    name="description"
+                    content="Marvel information portal"
+                />
+                <title>Marvel information portal</title>
+            </Helmet>
             <div className="error-page">
                 <div className="error-page__text">
                     <h1 className="error-page__header">404 Page Not Found</h1>
