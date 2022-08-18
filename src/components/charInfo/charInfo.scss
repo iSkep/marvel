@@ -7,6 +7,9 @@
         position: relative;
         z-index: 5;
         background-color: #fff;
+        @media (max-width: 991.98px) {
+            padding: 10px;
+        }
         &-name {
             font-weight: bold;
             font-size: 22px;
@@ -29,6 +32,9 @@
     }
     &__btns {
         margin-top: 35px;
+        a:nth-child(1) {
+            margin-right: 10px;
+        }
         a:nth-child(2) {
             margin-top: 10px;
         }

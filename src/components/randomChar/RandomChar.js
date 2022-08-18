@@ -35,8 +35,10 @@ const RandomChar = () => {
     }
 
     return (
-        <div className="randomchar">  
-            {setContent(process, View, char)}
+        <div className="randomchar">
+            <div className="randomchar__block">
+                {setContent(process, View, char)}
+            </div>
             <div className="randomchar__static">
                 <p className="randomchar__title">
                     Random character for today!<br/>
@@ -66,7 +68,7 @@ const View = ({data}) => {
     }
 
     return (
-        <div className="randomchar__block">
+        <>
             <img src={thumbnail} alt="Random character" className="randomchar__img" style={imgStyle}/>
             <div className="randomchar__info">
                 <p className="randomchar__name">{name}</p>
@@ -80,7 +82,7 @@ const View = ({data}) => {
                     </a>
                 </div>
             </div>
-        </div>
+        </>
     )
 }
 

@@ -7,6 +7,11 @@
         grid-template-columns: repeat(auto-fill, 225px);
         justify-content: space-between;
         row-gap: 55px;
+        column-gap: 10px;
+        @media (max-width: 991.98px) {
+            justify-content: center;
+            row-gap: 30px;
+        }
     }
     &__item {
         transition: 0.3s transform;

@@ -2,16 +2,32 @@
     display: flex;
     align-items: center;
     margin: 0 auto;
+    @media (max-width: 767.98px) {
+        flex-direction: column;
+    }
+
+    &__text {
+        @media (max-width: 767.98px) {
+            text-align: center;
+        }
+    }
 
     &__header {
         text-transform: uppercase;
         font-size: 40px;
         margin-bottom: 30px;
+        @media (max-width: 767.98px) {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
     }
 
     &__subheader {
         font-size: 20px;
         margin-bottom: 5px;
+        @media (max-width: 767.98px) {
+            font-size: 18px;
+        }
     }
 
     &__desc {
@@ -24,6 +40,16 @@
 
     &__image {
         margin: 0 auto;
+        @media (max-width: 991.98px) {
+            width: 300px;
+        }
+        @media (max-width: 767.98px) {
+            margin-bottom: -34px;  
+        }
+        img {
+            width: 100%;
+            height: auto;
+        }
     }
 
 }
