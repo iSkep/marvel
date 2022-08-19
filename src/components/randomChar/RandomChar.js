@@ -52,7 +52,7 @@ const RandomChar = () => {
                     onClick={updateChar}
                     disabled={process === 'loading'}
                 >
-                    <div className="inner">try it</div>
+                    try it
                 </button>
                 <img src={mjolnir} alt="mjolnir" className="randomchar__decoration"/>
             </div>
@@ -75,10 +75,10 @@ const View = ({data}) => {
                 <p className="randomchar__descr">{description}</p>
                 <div className="randomchar__btns">
                     <a href={homepage} className="button button__main">
-                        <div className="inner">Homepage</div>
+                        Homepage
                     </a>
                     <a href={wiki} className="button button__secondary">
-                        <div className="inner">Wiki</div>
+                        Wiki
                     </a>
                 </div>
             </div>
