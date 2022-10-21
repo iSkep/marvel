@@ -10,9 +10,9 @@ import './comicsList.scss';
 const setContent = (process, Component, newItemLoading) => {
     switch (process) {
         case 'waiting':
-            return <Spinner />
+            return <Spinner />;
         case 'loading':
-            return newItemLoading ? <Component /> : <Spinner />
+            return newItemLoading ? <Component /> : <Spinner />;
         case 'confirmed':
             return <Component />;
         case 'error':
@@ -20,16 +20,15 @@ const setContent = (process, Component, newItemLoading) => {
         default:
             throw new Error('Unexpected process state');
     }
-}
+};
 
 const ComicsList = () => {
-    
     const [comicsList, setComicsList] = useState([]);
     const [newItemLoading, setNewItemLoading] = useState(false);
     const [offset, setOffset] = useState(10);
     const [comicsEnded, setComicsEnded] = useState(false);
 
-    const {getAllComics, process, setProcess} = useMarvelService();
+    const { getAllComics, process, setProcess } = useMarvelService();
 
     useEffect(() => {
         onRequest(offset, true);
@@ -41,7 +40,7 @@ const ComicsList = () => {
         getAllComics(offset)
             .then(onComicsListLoaded)
             .then(() => setProcess('confirmed'));
-    }
+    };
 
     const onComicsListLoaded = (newComicsList) => {
         let ended = false;
@@ -49,34 +48,26 @@ const ComicsList = () => {
             ended = true;
         }
 
-        setComicsList(comicsList => [...comicsList, ...newComicsList]);
+        setComicsList((comicsList) => [...comicsList, ...newComicsList]);
         setNewItemLoading(false);
-        setOffset(offset => offset + 8);
+        setOffset((offset) => offset + 8);
         setComicsEnded(ended);
-    }
+    };
 
     function renderItems(arr) {
-        const items =  arr.map((item, i) => {
+        const items = arr.map((item, i) => {
             return (
-                <li
-                    className="comics__item"
-                    tabIndex={0}
-                    key={i}
-                >
+                <li className="comics__item" tabIndex={0} key={i}>
                     <Link to={`/comics/${item.id}`}>
-                        <img src={item.thumbnail} alt={item.title} className="comics__item-img"/>
+                        <img src={item.thumbnail} alt={item.title} className="comics__item-img" />
                         <div className="comics__item-name">{item.title}</div>
                         <div className="comics__item-price">{item.price}</div>
                     </Link>
                 </li>
-            )
+            );
         });
 
-        return (
-            <ul className="comics__grid">
-                {items}
-            </ul>
-        )
+        return <ul className="comics__grid">{items}</ul>;
     }
 
     return (
@@ -86,12 +77,12 @@ const ComicsList = () => {
                 className="button button__main button__long"
                 onClick={() => onRequest(offset)}
                 disabled={newItemLoading}
-                style={{'display': comicsEnded ? 'none' : 'block'}}
+                style={{ display: comicsEnded ? 'none' : 'block' }}
             >
                 <div className="inner">load more</div>
             </button>
         </div>
-    )
-}
+    );
+};
 
 export default ComicsList;

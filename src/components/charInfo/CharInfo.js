@@ -7,18 +7,16 @@ import setContent from '../../utils/setContent';
 import './charInfo.scss';
 
 const CharInfo = (props) => {
-
     const [char, setChar] = useState(null);
-
-    const {getCharacter, clearError, process, setProcess} = useMarvelService();
+    const { getCharacter, clearError, process, setProcess } = useMarvelService();
 
     useEffect(() => {
         updateChar();
         // eslint-disable-next-line
-    }, [props.charId])
+    }, [props.charId]);
 
     const updateChar = () => {
-        const {charId} = props;
+        const { charId } = props;
         if (!charId) {
             return;
         }
@@ -27,31 +25,27 @@ const CharInfo = (props) => {
         getCharacter(charId)
             .then(onCharLoaded)
             .then(() => setProcess('confirmed'));
-    }
+    };
 
     const onCharLoaded = (char) => {
         setChar(char);
-    }
+    };
 
-    return (
-        <div className="char__info">
-            {setContent(process, View, char)}
-        </div>
-    )
-}
+    return <div className="char__info">{setContent(process, View, char)}</div>;
+};
 
-const View = ({data}) => {
-    const {name, description, thumbnail, homepage, wiki, comics} = data;
+const View = ({ data }) => {
+    const { name, description, thumbnail, homepage, wiki, comics } = data;
 
-    let imgStyle = {'objectFit' : 'cover'};
+    let imgStyle = { objectFit: 'cover' };
     if (thumbnail === 'http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg') {
-        imgStyle = {'objectFit' : 'contain'};
+        imgStyle = { objectFit: 'contain' };
     }
 
     return (
         <>
             <div className="char__basics">
-                <img src={thumbnail} style={imgStyle} alt={name}/>
+                <img src={thumbnail} style={imgStyle} alt={name} />
                 <div>
                     <div className="char__info-name">{name}</div>
                     <div className="char__btns">
@@ -64,31 +58,27 @@ const View = ({data}) => {
                     </div>
                 </div>
             </div>
-            <div className="char__descr">
-                {description}
-            </div>
+            <div className="char__descr">{description}</div>
             <div className="char__comics">Comics:</div>
             <ul className="char__comics-list">
                 {comics.length > 0 ? null : 'There is no comics with this character'}
-                {
-                    comics.map((item, i) => {
-                        // eslint-disable-next-line
-                        if (i > 10) return null;
+                {comics.map((item, i) => {
+                    // eslint-disable-next-line
+                    if (i > 10) return null;
 
-                        return (
-                            <li className="char__comics-item" key={i}>
-                                {item.name}
-                            </li>
-                        )
-                    })
-                }   
+                    return (
+                        <li className="char__comics-item" key={i}>
+                            {item.name}
+                        </li>
+                    );
+                })}
             </ul>
-        </>    
-    )
-}
+        </>
+    );
+};
 
 CharInfo.propTypes = {
-    charId: PropTypes.number
-}
+    charId: PropTypes.number,
+};
 
 export default CharInfo;

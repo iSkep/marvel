@@ -3,43 +3,47 @@ import { useState, useEffect } from 'react';
 
 import useMarvelService from '../../services/MarvelService';
 import setContent from '../../utils/setContent';
-import AppBanner from "../appBanner/AppBanner";
+import AppBanner from '../appBanner/AppBanner';
 
-const SinglePage = ({Component, dataType}) => {
-    const {id} = useParams();
+const SinglePage = ({ Component, dataType }) => {
+    const { id } = useParams();
     const [data, setData] = useState(null);
-    const {getComic, getCharacter, clearError, process, setProcess} = useMarvelService();
+    const { getComic, getCharacter, clearError, process, setProcess } = useMarvelService();
 
     useEffect(() => {
-        updateData()
+        updateData();
         // eslint-disable-next-line
-    }, [id])
+    }, [id]);
 
     const updateData = () => {
         clearError();
 
         switch (dataType) {
             case 'comic':
-                getComic(id).then(onDataLoaded).then(() => setProcess('confirmed'));
+                getComic(id)
+                    .then(onDataLoaded)
+                    .then(() => setProcess('confirmed'));
                 break;
             case 'character':
-                getCharacter(id).then(onDataLoaded).then(() => setProcess('confirmed'));
+                getCharacter(id)
+                    .then(onDataLoaded)
+                    .then(() => setProcess('confirmed'));
                 break;
             default:
                 return;
         }
-    }
+    };
 
     const onDataLoaded = (data) => {
         setData(data);
-    }
+    };
 
     return (
         <>
-            <AppBanner/>
+            <AppBanner />
             {setContent(process, Component, data)}
         </>
-    )
-}
+    );
+};
 
 export default SinglePage;

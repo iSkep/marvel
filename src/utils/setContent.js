@@ -9,12 +9,12 @@ const setContent = (process, Component, data) => {
         case 'loading':
             return <Spinner />;
         case 'confirmed':
-            return <Component data={data}/>;
+            return <Component data={data} />;
         case 'error':
             return <ErrorMessage />;
         default:
             throw new Error('Unexpected process state');
     }
-}
+};
 
 export default setContent;

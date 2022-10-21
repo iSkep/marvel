@@ -2,7 +2,7 @@ import { Link, NavLink } from 'react-router-dom';
 import './appHeader.scss';
 
 const AppHeader = () => {
-    const setActive = ({ isActive }) => ({color: isActive ? '#9f0013' : 'inherit'});
+    const setActive = ({ isActive }) => ({ color: isActive ? '#9f0013' : 'inherit' });
 
     return (
         <header className="app__header">
@@ -27,7 +27,7 @@ const AppHeader = () => {
                 </ul>
             </nav>
         </header>
-    )
-}
+    );
+};
 
 export default AppHeader;
