@@ -1,13 +1,12 @@
-![GitHub package.json dependency version (prod)](https://img.shields.io/github/package-json/dependency-version/iskep/marvel/react)
-![GitHub package.json dependency version (prod)](https://img.shields.io/github/package-json/dependency-version/iskep/marvel/react-router-dom)
-![GitHub package.json dependency version (prod)](https://img.shields.io/github/package-json/dependency-version/iskep/marvel/react-helmet)
-![GitHub package.json dependency version (prod)](https://img.shields.io/github/package-json/dependency-version/iskep/marvel/prop-types)
-![GitHub package.json dependency version (prod)](https://img.shields.io/github/package-json/dependency-version/iskep/marvel/formik)
-![GitHub package.json dependency version (prod)](https://img.shields.io/github/package-json/dependency-version/iskep/marvel/yup)
+# [MARVEL](https://marvel-skep.netlify.app/) | React practice project using [Marvel's API](https://developer.marvel.com/)
 
-# Marvel information portal
-
-React practice project using [Marvel's API](https://developer.marvel.com/).
+## 🐱‍💻 Tech stack
+* React 18.2.0
+* React Router DOM
+* React Helmet
+* PropTypes
+* Formik
+* Yup
 
 ## Available Scripts
 
